@@ -35,12 +35,6 @@ defmodule Aoc2021Test do
       assert Enum.take(grad, -8) == [-5, 5, 4, 1, 2, 1, 6, 10]
     end
 
-    test "count_pos/1" do
-      list = [-1, 3, -2, 2, 7, -5]
-
-      assert Day01.count_pos(list) == 3
-    end
-
     test "part_1/1: can be called with no errors" do
       # IO.puts("Day 01 - part 1 answer: ")
       Day01.part_1()
@@ -48,13 +42,6 @@ defmodule Aoc2021Test do
   end
 
   describe "day 01 - part 2" do
-    test "trim/2" do
-      list = [5, 8, 3, -5, 1, -2, 4, 6]
-
-      assert Day01.trim(list, 3) == [-5, 1, -2, 4, 6]
-      assert Day01.trim(list, -3) == [5, 8, 3, -5, 1]
-    end
-
     test "moving_sum/1" do
       list = [5, 8, 3, -5, 1, -2, 4, 6]
 

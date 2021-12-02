@@ -1,7 +1,3 @@
-
-
-# $ mix run main.exs <day>
-
 opt = System.argv() |> hd()
 case Aoc2021.day(opt) do
   nil -> IO.puts("Oops, no code done for that day.")
