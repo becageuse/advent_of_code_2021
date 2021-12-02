@@ -13,7 +13,7 @@ defmodule Aoc2021Test do
     end
 
     test "compute_gradient/1" do
-      signs =
+      grad =
         Day01.compute_gradient([
           103,
           106,
@@ -30,9 +30,9 @@ defmodule Aoc2021Test do
           9548
         ])
 
-      assert length(signs) == 12
-      assert Enum.take(signs, 3) == [3, 1, 3]
-      assert Enum.take(signs, -8) == [-5, 5, 4, 1, 2, 1, 6, 10]
+      assert length(grad) == 12
+      assert Enum.take(grad, 3) == [3, 1, 3]
+      assert Enum.take(grad, -8) == [-5, 5, 4, 1, 2, 1, 6, 10]
     end
 
     test "count_pos/1" do

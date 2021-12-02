@@ -19,20 +19,20 @@ defmodule Aoc2021.Day01 do
     list_left = [0] ++ list
     list_right = list ++ [0]
 
-    signs =
+    grad =
       [list_left, list_right]
       |> Enum.zip()
       |> Enum.map(fn {l, r} -> r - l end)
 
-    signs
+    grad
     |> tl()
     |> Enum.reverse()
     |> tl()
     |> Enum.reverse()
   end
 
-  def count_pos(signs) do
-    Enum.reduce(signs, 0, fn x, acc ->
+  def count_pos(grad) do
+    Enum.reduce(grad, 0, fn x, acc ->
       cond do
         x > 0 -> acc + 1
         true -> acc
