@@ -16,11 +16,9 @@ defmodule Aoc2021.Day01 do
   end
 
   def compute_gradient(list) do
-
-      [list, Enum.drop(list, 1)]
-      |> Enum.zip()
-      |> Enum.map(fn {l, r} -> r - l end)
-
+    [list, Enum.drop(list, 1)]
+    |> Enum.zip()
+    |> Enum.map(fn {l, r} -> r - l end)
   end
 
   def moving_sum(list) do
