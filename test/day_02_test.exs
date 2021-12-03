@@ -14,7 +14,8 @@ defmodule Aoc2021.Day02.Test do
   end
 
   test "can call part_1/0 without errors" do
-    Day02.part_1(&Day02.parse_input/0)
+    list = Day02.parse_input()
+    Day02.part_1(list)
   end
 
   test "compute_coord_2/1" do
