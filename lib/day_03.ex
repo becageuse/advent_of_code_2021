@@ -5,6 +5,12 @@ defmodule Aoc2021.Day03 do
     gamma * epsilon
   end
 
+  def part_2(data) do
+    oxygen = select_generator_rating(data, "oxygen", 0) |> bits_to_decimal()
+    co2 = select_generator_rating(data, "CO2", 0) |> bits_to_decimal()
+    oxygen * co2
+  end
+
   def parse_input(filepath \\ "data/input_03.txt") do
     with content = File.read!(filepath) do
       content
@@ -23,7 +29,7 @@ defmodule Aoc2021.Day03 do
   def compute_power(data, lenght) do
     Enum.zip_with(data, &Enum.sum/1)
     |> Enum.map(fn x ->
-      th = div(lenght, 2)
+      th = lenght / 2
 
       cond do
         x >= th -> 1
@@ -41,5 +47,34 @@ defmodule Aoc2021.Day03 do
       end)
 
     dec
+  end
+
+  def select_generator_rating(data, _, _) when length(data) == 1 do
+    hd(data)
+  end
+
+  def select_generator_rating(data, gas, it) do
+    freqs =
+      data
+      |> Enum.zip()
+      |> Enum.at(it)
+      |> Tuple.to_list()
+      |> Enum.frequencies()
+
+    label = apply_gas_rules(freqs, gas)
+
+    filtered =
+      Enum.filter(data, fn x ->
+        Enum.at(x, it) == label
+      end)
+
+    select_generator_rating(filtered, gas, it + 1)
+  end
+
+  def apply_gas_rules(freqs, gas) do
+    case gas do
+      "oxygen" -> if freqs[1] >= freqs[0], do: 1, else: 0
+      "CO2" -> if freqs[0] <= freqs[1], do: 0, else: 1
+    end
   end
 end

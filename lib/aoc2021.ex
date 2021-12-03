@@ -14,7 +14,7 @@ defmodule Aoc2021 do
 
       "3" ->
         {data, length} = Day03.parse_input()
-        %{part_1: Day03.part_1(data, length, 12), part_2: 0}
+        %{part_1: Day03.part_1(data, length, 12), part_2: Day03.part_2(data)}
 
       _ ->
         nil
