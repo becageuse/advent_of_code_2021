@@ -104,5 +104,4 @@ defmodule Aoc2021.Day04.Test do
   test "part_2/2", %{numbers: numbers, boards: boards} do
     assert Day04.part_2(numbers, boards) == 1924
   end
-
 end

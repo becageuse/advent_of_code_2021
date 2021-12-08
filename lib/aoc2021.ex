@@ -4,6 +4,7 @@ defmodule Aoc2021 do
   alias Aoc2021.Day03
   alias Aoc2021.Day04
   alias Aoc2021.Day05
+  alias Aoc2021.Day06
 
   def day(n) do
     case n do
@@ -25,6 +26,10 @@ defmodule Aoc2021 do
       "5" ->
         lines = Day05.parse_input()
         %{part_1: Day05.part_1(lines), part_2: Day05.part_2(lines)}
+
+      "6" ->
+        seeds = Day06.parse_input()
+        %{part_1: Day06.part_1(seeds, 80), part_2: 0}
 
       _ ->
         nil
