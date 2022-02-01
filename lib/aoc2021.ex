@@ -29,7 +29,15 @@ defmodule Aoc2021 do
 
       "6" ->
         seeds = Day06.parse_input()
-        %{part_1: Day06.part_1(seeds, 80), part_2: 0}
+        IO.puts("computing part 1 ..")
+        part_1 = Day06.part_1(seeds, 80)
+        IO.puts("computing part 2 ..")
+        t_start = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+        part_2 =  Day06.part_2(seeds, 256)
+        t_end = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+        elt = DateTime.from_unix!(t_end - t_start, :millisecond)
+        IO.puts("ELT: #{elt}")
+        %{part_1: part_1, part_2: part_2}
 
       _ ->
         nil

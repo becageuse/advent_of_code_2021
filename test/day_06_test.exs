@@ -1,4 +1,5 @@
 defmodule Aoc2021.Day06.Test do
+  import While
   use ExUnit.Case
   alias Aoc2021.Day06
 
@@ -18,7 +19,28 @@ defmodule Aoc2021.Day06.Test do
     assert Enum.take(Enum.reverse(seeds), 3) == [2, 5, 2]
   end
 
-  test "part_1/2", %{init_state: seeds} do
+  test "part_1", %{init_state: seeds} do
+    t_start = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
     assert Day06.part_1(seeds, 80) == 5934
+    t_end = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+    elt = DateTime.from_unix!(t_end - t_start, :millisecond)
+    IO.puts("ELT: #{elt}")
+  end
+
+  test "part_2", %{init_state: seeds} do
+    t_start = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+    assert Day06.part_2(seeds, 80) == 5934
+    t_end = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
+    elt = DateTime.from_unix!(t_end - t_start, :millisecond)
+    IO.puts("ELT: #{elt}")
+  end
+
+  test "for loops" do
+    my_list = [0, 1]
+    my_list = Enum.reduce(my_list, my_list, fn el, my_list ->
+      IO.inspect(el)
+      my_list ++ [2]
+    end)
+    IO.inspect(my_list)
   end
 end
