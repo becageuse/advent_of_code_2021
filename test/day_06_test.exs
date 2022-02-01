@@ -29,7 +29,8 @@ defmodule Aoc2021.Day06.Test do
 
   test "part_2", %{init_state: seeds} do
     t_start = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
-    assert Day06.part_2(seeds, 80) == 5934
+    # assert Day06.part_2(seeds, 80) == 5934
+    assert Day06.part_2(seeds, 256) == 26_984_457_539
     t_end = DateTime.utc_now() |> DateTime.to_unix(:millisecond)
     elt = DateTime.from_unix!(t_end - t_start, :millisecond)
     IO.puts("ELT: #{elt}")
@@ -37,10 +38,13 @@ defmodule Aoc2021.Day06.Test do
 
   test "for loops" do
     my_list = [0, 1]
-    my_list = Enum.reduce(my_list, my_list, fn el, my_list ->
-      IO.inspect(el)
-      my_list ++ [2]
-    end)
+
+    my_list =
+      Enum.reduce(my_list, my_list, fn el, my_list ->
+        IO.inspect(el)
+        my_list ++ [2]
+      end)
+
     IO.inspect(my_list)
   end
 end
