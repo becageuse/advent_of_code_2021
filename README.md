@@ -1,8 +1,6 @@
 🎄
 
-These are my solutions to the challenge [Advent of Code 2021](https://adventofcode.com/2021/) created by Eric Wastl et. al
-
-I chose to do it in elixir :)
+These are my solutions using elixir to the challenge [Advent of Code 2021](https://adventofcode.com/2021/) created by Eric Wastl et. al
 
 ## Usage
 
